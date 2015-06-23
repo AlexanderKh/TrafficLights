@@ -22,46 +22,51 @@ public class Intersection{
     }
 
     public void lButtonPush(){
-        if (rButtonPushed == false){
+        if (!rButtonPushed){
             startYellowTimer();
-        } else {
+        } else if (yellowTimer != null) {
             yellowTimer.dec();
         }
+        lButtonPushed = true;
     }
 
     public void rButtonPush(){
-        if (lButtonPushed == false){
+        if (!lButtonPushed){
             startYellowTimer();
-        } else {
+        } else if (yellowTimer != null) {
             yellowTimer.dec();
         }
+        rButtonPushed = true;
     }
 
     public void endCycle(){
-        greenTimer.interrupt();
         greenTimer = null;
+        System.out.println("Cycle ended");
         updateLights();
+        lButtonPushed = false;
+        rButtonPushed = false;
     }
 
     public void startYellowTimer() {
         yellowTimer = new YellowTimer(this);
         yellowTimer.start();
+        System.out.println("Started YELLOW timer");
         updateLights();
     }
 
     public void startRedTimer(){
-        yellowTimer.interrupt();
         yellowTimer = null;
         redTimer = new RedTimer(this);
         redTimer.start();
+        System.out.println("Started RED timer");
         updateLights();
     }
 
     public void startGreenTimer(){
-        redTimer.interrupt();
         redTimer = null;
         greenTimer = new GreenTimer(this);
         greenTimer.start();
+        System.out.println("Started GREEN timer");
         updateLights();
     }
 
@@ -78,6 +83,21 @@ public class Intersection{
         } else {
             bigLight.toggleGreen();
             smallLight.toggleRed();
+        }
+    }
+
+    public void stopRunning(){
+        if (yellowTimer != null){
+            yellowTimer.interrupt();
+            yellowTimer = null;
+        }
+        if (greenTimer != null) {
+            greenTimer.interrupt();
+            greenTimer = null;
+        }
+        if (redTimer != null) {
+            redTimer.interrupt();
+            redTimer = null;
         }
     }
 

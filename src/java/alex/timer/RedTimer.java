@@ -20,7 +20,9 @@ public class RedTimer extends Thread {
             try {
                 sleep(1000);
             } catch (InterruptedException e) {
+                System.out.println("RED Timer INTERRUPTED");
                 left = 0;
+                return;
             }
             left--;
         }

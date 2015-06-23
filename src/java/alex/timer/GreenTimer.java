@@ -20,7 +20,9 @@ public class GreenTimer extends Thread {
             try {
                 sleep(1000);
             } catch (InterruptedException e) {
+                System.out.println("GREEN Timer INTERRUPTED");
                 left = 0;
+                return;
             }
             left--;
         }
