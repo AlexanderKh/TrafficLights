@@ -27,7 +27,6 @@ public class YellowTimer extends Thread {
                 sleep(1000);
             } catch (InterruptedException e) {
                 System.out.println("YELLOW Timer INTERRUPTED");
-                left = 0;
                 return;
             }
             left--;

@@ -1,5 +1,9 @@
 package alex;
 
+import alex.lights.BigLight;
+import alex.lights.LightColor;
+import alex.lights.SmallLight;
+
 import javax.swing.*;
 import java.awt.*;
 

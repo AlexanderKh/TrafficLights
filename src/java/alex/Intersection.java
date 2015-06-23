@@ -1,5 +1,7 @@
 package alex;
 
+import alex.lights.BigLight;
+import alex.lights.SmallLight;
 import alex.timer.GreenTimer;
 import alex.timer.RedTimer;
 import alex.timer.YellowTimer;

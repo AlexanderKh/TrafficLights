@@ -1,4 +1,4 @@
-package alex;
+package alex.lights;
 
 public class BigLight {
     private LightColor lightColor;
